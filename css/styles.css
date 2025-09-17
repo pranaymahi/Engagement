@@ -164,51 +164,31 @@ body {
 }
 
 /* Dropdown content hidden by default */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff3e6;
-  min-width: 280px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  padding: 12px 16px;
+.events-dropdown {
+  position: absolute;   /* stick it to a corner */
+  top: 20px;            /* adjust as needed */
+  left: 20px;           /* keep it at the left side */
+  z-index: 1000;        /* make sure it stays above decorations */
+}
+
+.events-dropdown .dropbtn {
+  background-color: #c62828; /* deep festive red */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
   border-radius: 8px;
-  z-index: 1000;
-  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-/* Left aligned dropdown */
-.dropdown-left .dropdown-content {
-  left: 0;
-  right: auto;
-  transform: none;
-}
-
-/* Right aligned dropdown */
-.dropdown-right .dropdown-content {
-  right: 0;
-  left: auto;
-  transform: none;
-}
-
-/* Show dropdown */
-.dropdown-content.show {
-  display: block;
-}
-
-/* List styling */
-.dropdown-content ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown-content li {
-  padding: 8px 0;
-  border-bottom: 1px solid #f0c14b;
-  font-weight: 600;
-  color: #5a2a00;
-}
-
-.dropdown-content li:last-child {
-  border-bottom: none;
+.dropdown-content {
+  position: absolute;
+  left: 0;   /* dropdown opens aligned left */
+  top: 100%; /* right below button */
+  background: #fff8e1;
+  border: 1px solid #fbc02d;
+  border-radius: 8px;
+  min-width: 250px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
