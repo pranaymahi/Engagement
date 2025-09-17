@@ -24,8 +24,8 @@ body {
 }
 
 .ganesh-side {
-  width: 170px;
-  max-width: 30%;
+  width: 180px;
+  max-width: 40%;
   filter: drop-shadow(0 0 10px #f9b233);
   border-radius: 12px;
   transition: transform 0.3s ease;
