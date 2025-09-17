@@ -1,4 +1,4 @@
-/* General reset and base styles */
+/* Base styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fff8f0;
@@ -7,14 +7,14 @@ body {
   padding: 0;
 }
 
-/* Flexbox layout for Ganesh images + Welcome text */
+/* Flexbox layout for header */
 .header-flex {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 30px 10px;
-  flex-wrap: wrap; /* Wrap on small screens */
+  flex-wrap: wrap;
   background-color: #fff3e6;
   border: 3px solid #f4c430; /* Saffron border */
   border-radius: 15px;
@@ -24,7 +24,7 @@ body {
 }
 
 .ganesh-side {
-  width: 180px;
+  width: 200px;
   max-width: 40%;
   filter: drop-shadow(0 0 10px #f9b233);
   border-radius: 12px;
@@ -40,7 +40,7 @@ body {
   text-align: center;
   max-width: 500px;
   font-weight: 600;
-  color: #b55239; /* Warm earthy tone */
+  color: #b55239;
 }
 
 .welcome-text h1 {
@@ -50,7 +50,7 @@ body {
 
 .date-line {
   font-size: 1.2em;
-  color: #8b0000; /* Dark red */
+  color: #8b0000;
   margin-top: 5px;
 }
 
@@ -119,7 +119,7 @@ body {
   }
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 600px) {
   .header-flex {
     flex-direction: column;
@@ -134,4 +134,81 @@ body {
   .welcome-text h1 {
     font-size: 2em;
   }
+}
+
+/* --- Dropdown styles --- */
+
+/* Container */
+.events-dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Button */
+.dropbtn {
+  background-color: #f4c430; /* Saffron */
+  color: #8b0000; /* Dark red */
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  background-color: #d9b118;
+}
+
+/* Dropdown content hidden by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff3e6;
+  min-width: 280px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 12px 16px;
+  border-radius: 8px;
+  z-index: 1000;
+  text-align: left;
+}
+
+/* Left aligned dropdown */
+.dropdown-left .dropdown-content {
+  left: 0;
+  right: auto;
+  transform: none;
+}
+
+/* Right aligned dropdown */
+.dropdown-right .dropdown-content {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+/* Show dropdown */
+.dropdown-content.show {
+  display: block;
+}
+
+/* List styling */
+.dropdown-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0c14b;
+  font-weight: 600;
+  color: #5a2a00;
+}
+
+.dropdown-content li:last-child {
+  border-bottom: none;
 }
