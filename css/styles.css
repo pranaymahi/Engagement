@@ -47,11 +47,12 @@ body {
   position: absolute;
   width: 30px;
   height: 30px;
-  background-image: url('https://i.imgur.com/BGE6V1F.png'); /* rose petal png */
+  background-image: url('https://i.imgur.com/LrC6AqZ.png'); /* working transparent petal */
   background-size: cover;
   animation: fall linear infinite;
   pointer-events: none;
 }
+
 
 .petal1 {
   left: 10%;
