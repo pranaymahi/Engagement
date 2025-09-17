@@ -5,67 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wedding Invitation</title>
   <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff8f0;
+      color: #5d4037;
+      text-align: center;
+    }
 
-  <!-- Header with Ganesh images and welcome text -->
-  <div class="header-flex">
-    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
-    <div class="welcome-text">
-      <h1>💍 Welcome to Our Wedding!</h1>
-      <p class="date-line">Join us in celebrating our love on <strong>November 15, 2025</strong></p>
-      <p id="countdown"></p>
-    </div>
-    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
-  </div>
+    /* Dropdown top-left */
+    .events-dropdown {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 2000;
+    }
 
-  <!-- Dropdown menu for events, right aligned -->
-  <div class="events-dropdown dropdown-right">
-    <button class="dropbtn">Wedding Events Schedule ▼</button>
-    <div id="events-content" class="dropdown-content">
-      <ul>
-        <li><strong>Mehendi Ceremony</strong> - November 12, 2025, 5:00 PM</li>
-        <li><strong>Sangeet Night</strong> - November 13, 2025, 7:00 PM</li>
-        <li><strong>Wedding Ceremony</strong> - November 15, 2025, 10:00 AM</li>
-        <li><strong>Reception</strong> - November 15, 2025, 7:00 PM</li>
-      </ul>
-    </div>
-  </div>
+    .events-dropdown .dropbtn {
+      background-color: #c62828;
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+    }
 
-  <!-- Decorative images -->
-  <div class="decoration">
-    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
-    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
-    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
-  </div>
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff8e1;
+      border: 1px solid #fbc02d;
+      border-radius: 6px;
+      min-width: 250px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      padding: 10px;
+      text-align: left;
+    }
 
-  <!-- Falling flower animation placeholders -->
-  <div class="flower petal1"></div>
-  <div class="flower petal2"></div>
-  <div class="flower petal3"></div>
+    .dropdown-content ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
-  <!-- Countdown script -->
-  <script src="app.js"></script>
+    .dropdown-content li {
+      padding: 8px 0;
+      font-size: 14px;
+    }
 
-  <!-- Dropdown toggle script -->
-  <script>
-    // Toggle dropdown on button click
-    document.querySelector('.dropbtn').addEventListener('click', function () {
-      document.getElementById('events-content').classList.toggle('show');
-    });
+    .dropdown-content.show {
+      display: block;
+    }
 
-    // Close dropdown if clicked outside
-    window.addEventListener('click', function (e) {
-      if (!e.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName('dropdown-content');
-        for (let i = 0; i < dropdowns.length; i++) {
-          let openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    });
-  </script>
-</body>
-</html>
+    /* Header */
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+      margin-top: 60px; /* space below fixed dropdown */
+      background: #fff3e0;
+      border: 2px solid #fbc02d;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .ganesh-side {
+      width: 150px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .welcome-text h1 {
+      font-size: 2rem;
+      margin: 0;
+      color: #b71c1c;
+    }
+
+    .date-line {
+      margin: 8px 0;
+      font-size: 1.1rem;
+    }
+
+    /* Decorative images */
+    .decoration {
+      margin: 40px 0;
+    }
+
+    .decoration img {
+      width: 100px;
+      height: auto;
+      margin: 0 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Falling flower animation */
+    .flower {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background: url("assets/flower.png") no-repeat center/contain;
+      animation: fall 1
