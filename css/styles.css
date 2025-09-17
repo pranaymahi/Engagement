@@ -1,13 +1,13 @@
-/* ---------------- Base styles ---------------- */
+/* ---------- General Reset ---------- */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fff8f0;
-  color: #333;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 
-/* ---------------- Header ---------------- */
+/* ---------- Header ---------- */
 .header-flex {
   display: flex;
   justify-content: center;
@@ -16,24 +16,19 @@ body {
   padding: 30px 10px;
   flex-wrap: wrap;
   background-color: #fff3e6;
-  border: 3px solid #f4c430; /* Saffron border */
+  border: 3px solid #f4c430;
   border-radius: 15px;
   max-width: 900px;
-  margin: 40px auto;
+  margin: 120px auto 40px auto; /* leave space for dropdown */
   box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);
 }
 
 .ganesh-side {
   width: 160px;
-  max-width: 30%;
-  filter: drop-shadow(0 0 10px #f9b233);
+  height: 160px;
   border-radius: 12px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.ganesh-side:hover {
-  transform: scale(1.1) rotate(5deg);
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .welcome-text {
@@ -54,128 +49,18 @@ body {
   margin-top: 5px;
 }
 
-/* ---------------- Decoration ---------------- */
-.decoration {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 40px 0;
+#countdown {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #333;
 }
 
-.decoration .LRD {
-  width: 80px;
-  border-radius: 50%;
-  filter: drop-shadow(0 0 8px #dcae52);
-  transition: transform 0.4s ease;
-}
-
-.decoration .LRD:hover {
-  transform: scale(1.15);
-}
-
-/* ---------------- Petal animation ---------------- */
-.flower {
-  position: fixed;
-  background: url('../assets/petal.png') no-repeat center center;
-  background-size: contain;
-  width: 30px;
-  height: 30px;
-  opacity: 0.7;
-  pointer-events: none;
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.petal1 {
-  left: 10%;
-  animation-duration: 8s;
-  animation-delay: 0s;
-  top: -40px;
-}
-
-.petal2 {
-  left: 50%;
-  animation-duration: 10s;
-  animation-delay: 3s;
-  top: -50px;
-}
-
-.petal3 {
-  left: 80%;
-  animation-duration: 12s;
-  animation-delay: 5s;
-  top: -60px;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* ---------------- Responsive ---------------- */
-@media (max-width: 600px) {
-  .header-flex {
-    flex-direction: column;
-    padding: 20px 5px;
-  }
-
-  .ganesh-side {
-    width: 120px;
-    margin-bottom: 15px;
-  }
-
-  .welcome-text h1 {
-    font-size: 2em;
-  }
-}
-
-/* ---------------- Dropdown ---------------- */
+/* ---------- Dropdown ---------- */
 .events-dropdown {
   position: absolute;
-  top: 20px;    /* top-left corner */
-  left: 20px;
+  top: 20px;
+  left: 20px; /* top-left corner */
   z-index: 1000;
 }
 
 .dropbtn {
-  background-color: #c62828; /* festive red */
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
-}
-
-.dropbtn:hover {
-  background-color: #8b0000;
-}
-
-.dropdown-content {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background: #fff8e1;
-  border: 1px solid #fbc02d;
-  border-radius: 8px;
-  min-width: 250px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  z-index: 1001;
-
-  /* animation settings */
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transform: translateY(-10px);
-  transition: all 0.4s ease;
-}
