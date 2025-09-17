@@ -19,7 +19,7 @@ body {
   border: 3px solid #f4c430;
   border-radius: 15px;
   max-width: 900px;
-  margin: 120px auto 40px auto; /* leave space for dropdown */
+  margin: 120px auto 40px auto; /* leave space at top for dropdown */
   box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);
 }
 
@@ -44,23 +44,4 @@ body {
 }
 
 .date-line {
-  font-size: 1.2em;
-  color: #8b0000;
-  margin-top: 5px;
-}
-
-#countdown {
-  font-size: 1.2em;
-  margin-top: 10px;
-  color: #333;
-}
-
-/* ---------- Dropdown ---------- */
-.events-dropdown {
-  position: absolute;
-  top: 20px;
-  left: 20px; /* top-left corner */
-  z-index: 1000;
-}
-
-.dropbtn {
+  font-size: 1.2
