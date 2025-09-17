@@ -12,13 +12,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffe6e6;
-  padding: 20px;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
 }
 
 .ganesh-side {
-  width: 170px;
+  width: 80px;
   height: auto;
 }
 
@@ -46,9 +46,10 @@ body {
 
 /* Dropdown */
 .events-dropdown {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
   position: relative;
-  display: inline-block;
-  float: left;
 }
 
 .dropbtn {
@@ -68,9 +69,10 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #fff;
-  min-width: 250px;
+  min-width: 90%;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   border-radius: 8px;
   z-index: 1000;
@@ -163,7 +165,7 @@ body {
   position: absolute;
   width: 25px;
   height: 25px;
-  background-image: url('assets/petal.png'); /* Replace with your petal image */
+  background-image: url('assets/petal.png'); /* replace with your petal image */
   background-size: cover;
   top: -50px;
   opacity: 0.8;
@@ -177,4 +179,45 @@ body {
 @keyframes fall {
   0% { top: -50px; transform: translateX(0) rotate(0deg); }
   100% { top: 100vh; transform: translateX(50px) rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .header-flex {
+    flex-direction: column;
+  }
+
+  .welcome-text h1 {
+    font-size: 1.5em;
+  }
+
+  .date-line,
+  #countdown {
+    font-size: 1em;
+  }
+
+  .dropbtn {
+    font-size: 0.9em;
+    padding: 8px 15px;
+  }
+
+  .timeline li {
+    padding-left: 50px;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline .dot {
+    left: 6px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .dropdown-content {
+    min-width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
