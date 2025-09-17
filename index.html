@@ -1,41 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wedding Invitation</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- Flex layout: Ganesh image on left and right of welcome text -->
+  <!-- Header with Ganesh images and welcome text -->
   <div class="header-flex">
-    <!-- Left Ganesh -->
-    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side">
-
-    <!-- Welcome Text -->
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
     <div class="welcome-text">
       <h1>💍 Welcome to Our Wedding!</h1>
       <p class="date-line">Join us in celebrating our love on <strong>November 15, 2025</strong></p>
       <p id="countdown"></p>
     </div>
-
-    <!-- Right Ganesh -->
-    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side">
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
   </div>
 
-  <!-- Decorative image row -->
+  <!-- Dropdown menu for events, right aligned -->
+  <div class="events-dropdown dropdown-right">
+    <button class="dropbtn">Wedding Events Schedule ▼</button>
+    <div id="events-content" class="dropdown-content">
+      <ul>
+        <li><strong>Mehendi Ceremony</strong> - November 12, 2025, 5:00 PM</li>
+        <li><strong>Sangeet Night</strong> - November 13, 2025, 7:00 PM</li>
+        <li><strong>Wedding Ceremony</strong> - November 15, 2025, 10:00 AM</li>
+        <li><strong>Reception</strong> - November 15, 2025, 7:00 PM</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Decorative images -->
   <div class="decoration">
-    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
-    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
-    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
   </div>
 
-  <!-- Falling flower animation -->
+  <!-- Falling flower animation placeholders -->
   <div class="flower petal1"></div>
   <div class="flower petal2"></div>
   <div class="flower petal3"></div>
 
-  <!-- JavaScript for countdown -->
+  <!-- Countdown script -->
   <script src="app.js"></script>
+
+  <!-- Dropdown toggle script -->
+  <script>
+    // Toggle dropdown on button click
+    document.querySelector('.dropbtn').addEventListener('click', function () {
+      document.getElementById('events-content').classList.toggle('show');
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function (e) {
+      if (!e.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName('dropdown-content');
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
