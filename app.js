@@ -37,10 +37,21 @@
   const dropdownContent = document.getElementById('events-content');
 
   dropbtn.addEventListener('click', function (e) {
-    e.stopPropagation(); // Prevent event from bubbling up to window
+    e.stopPropagation(); // Prevent click from bubbling to window
     dropdownContent.classList.toggle('show');
+    // Optional: rotate arrow ▼ ▲
+    if (dropdownContent.classList.contains('show')) {
+      dropbtn.textContent = "Wedding Events Schedule ▲";
+    } else {
+      dropbtn.textContent = "Wedding Events Schedule ▼";
+    }
   });
 
   // Close dropdown if clicked outside
   window.addEventListener('click', function () {
-    if (dropdownContent.classList.contains('show'))
+    if (dropdownContent.classList.contains('show')) {
+      dropdownContent.classList.remove('show');
+      dropbtn.textContent = "Wedding Events Schedule ▼";
+    }
+  });
+})();
