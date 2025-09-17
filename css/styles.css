@@ -18,7 +18,7 @@ body {
 }
 
 .ganesh-side {
-  width: 150px;
+  width: 80px;
   height: auto;
 }
 
@@ -147,6 +147,20 @@ body {
   color: #555;
   font-size: 0.9em;
   margin-top: 2px;
+}
+
+/* Event address link */
+.event-location {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.9em;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.event-location:hover {
+  text-decoration: underline;
+  color: #005999;
 }
 
 /* Animate timeline items */
