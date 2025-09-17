@@ -1,117 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wedding Invitation</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganesh Festival</title>
   <style>
+    /* ---------------- Base styles ---------------- */
     body {
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #fff8f0;
-      color: #5d4037;
-      text-align: center;
-    }
-
-    /* Dropdown top-left */
-    .events-dropdown {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 2000;
-    }
-
-    .events-dropdown .dropbtn {
-      background-color: #c62828;
-      color: #fff;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.25);
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #fff8e1;
-      border: 1px solid #fbc02d;
-      border-radius: 6px;
-      min-width: 250px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      padding: 10px;
-      text-align: left;
-    }
-
-    .dropdown-content ul {
+      color: #333;
       margin: 0;
       padding: 0;
-      list-style: none;
     }
 
-    .dropdown-content li {
-      padding: 8px 0;
-      font-size: 14px;
-    }
-
-    .dropdown-content.show {
-      display: block;
-    }
-
-    /* Header */
+    /* ---------------- Header ---------------- */
     .header-flex {
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      padding: 40px;
-      margin-top: 60px; /* space below fixed dropdown */
-      background: #fff3e0;
-      border: 2px solid #fbc02d;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      gap: 20px;
+      padding: 30px 10px;
+      flex-wrap: wrap;
+      background-color: #fff3e6;
+      border: 3px solid #f4c430; /* Saffron border */
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 80px auto 40px auto; /* pushed down so dropdown is visible */
+      box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);
     }
 
     .ganesh-side {
-      width: 150px;
-      height: auto;
+      width: 160px;
+      max-width: 30%;
+      filter: drop-shadow(0 0 10px #f9b233);
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .ganesh-side:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .welcome-text {
+      text-align: center;
+      max-width: 500px;
+      font-weight: 600;
+      color: #b55239;
     }
 
     .welcome-text h1 {
-      font-size: 2rem;
-      margin: 0;
-      color: #b71c1c;
+      font-size: 2.5em;
+      margin: 0 0 10px 0;
     }
 
     .date-line {
-      margin: 8px 0;
-      font-size: 1.1rem;
+      font-size: 1.2em;
+      color: #8b0000;
+      margin-top: 5px;
     }
 
-    /* Decorative images */
+    /* ---------------- Decoration ---------------- */
     .decoration {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
       margin: 40px 0;
     }
 
-    .decoration img {
-      width: 100px;
-      height: auto;
-      margin: 0 10px;
+    .decoration .LRD {
+      width: 80px;
       border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      filter: drop-shadow(0 0 8px #dcae52);
+      transition: transform 0.4s ease;
     }
 
-    /* Falling flower animation */
+    .decoration .LRD:hover {
+      transform: scale(1.15);
+    }
+
+    /* ---------------- Petal animation ---------------- */
     .flower {
-      position: absolute;
-      top: -50px;
+      position: fixed;
+      background: url('petal.png') no-repeat center center;
+      background-size: contain;
       width: 30px;
       height: 30px;
-      background: url("assets/flower.png") no-repeat center/contain;
-      animation: fall 1
+      opacity: 0.7;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .petal1 {
+      left: 10%;
+      animation-duration: 8s;
+      animation-delay: 0s;
+      top: -40px;
+    }
+
+    .petal2 {
+      left: 50%;
+      animation-duration: 10s;
+      animation-delay: 3s;
+      top: -50px;
+    }
+
+    .petal3 {
+      left: 80%;
+      animation-duration: 12s;
+      animation-delay: 5s;
+      top: -60px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* ---------------- Responsive ---------------- */
+    @media (max-width: 600px) {
+      .header-flex {
+        flex-direction: column;
+        padding: 20px 5px;
+      }
+
+      .ganesh-side {
+        width: 120px;
+        margin-bottom: 15px;
+      }
+
+      .welcome-text h1 {
+        font-size: 2em;
+      }
+    }
+
+    /* ---------------- Dropdown ---------------- */
+    .events-dropdown {
+      position: absolute;
+      top: 20px;    /* top-left corner */
+      left: 20px;
+      z-index: 1000;
+    }
+
+    .dropbtn {
+      background-color: #c62828; /* festive red */
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .dropbtn:hover {
+      background-color: #8b0000;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #fff8e1;
+      border: 1px solid #fbc02d;
+      border-radius: 8px;
+      min-width: 250px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      z-index: 1001;
+
+      /* animation settings */
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+    }
+
+    .dropdown-content a {
+      display: b
