@@ -1,191 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ganesh Festival</title>
-  <style>
-    /* ---------------- Base styles ---------------- */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff8f0;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
 
-    /* ---------------- Header ---------------- */
-    .header-flex {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      padding: 30px 10px;
-      flex-wrap: wrap;
-      background-color: #fff3e6;
-      border: 3px solid #f4c430; /* Saffron border */
-      border-radius: 15px;
-      max-width: 900px;
-      margin: 80px auto 40px auto; /* pushed down so dropdown is visible */
-      box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);
-    }
+  <!-- Header with Ganesh images and welcome text -->
+  <div class="header-flex">
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
+    <div class="welcome-text">
+      <h1>💍 Welcome to Our Wedding!</h1>
+      <p class="date-line">Join us in celebrating our love on <strong>November 15, 2025</strong></p>
+      <p id="countdown"></p>
+    </div>
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
+  </div>
 
-    .ganesh-side {
-      width: 160px;
-      max-width: 30%;
-      filter: drop-shadow(0 0 10px #f9b233);
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
+  <!-- Dropdown menu for events, right aligned -->
+  <div class="events-dropdown dropdown-right">
+    <button class="dropbtn">Wedding Events Schedule ▼</button>
+    <div id="events-content" class="dropdown-content">
+      <ul>
+        <li><strong>Mehendi Ceremony</strong> - November 12, 2025, 5:00 PM</li>
+        <li><strong>Sangeet Night</strong> - November 13, 2025, 7:00 PM</li>
+        <li><strong>Wedding Ceremony</strong> - November 15, 2025, 10:00 AM</li>
+        <li><strong>Reception</strong> - November 15, 2025, 7:00 PM</li>
+      </ul>
+    </div>
+  </div>
 
-    .ganesh-side:hover {
-      transform: scale(1.1) rotate(5deg);
-    }
+  <!-- Decorative images -->
+  <div class="decoration">
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD" />
+  </div>
 
-    .welcome-text {
-      text-align: center;
-      max-width: 500px;
-      font-weight: 600;
-      color: #b55239;
-    }
+  <!-- Falling flower animation placeholders -->
+  <div class="flower petal1"></div>
+  <div class="flower petal2"></div>
+  <div class="flower petal3"></div>
 
-    .welcome-text h1 {
-      font-size: 2.5em;
-      margin: 0 0 10px 0;
-    }
+  <!-- Countdown script -->
+  <script src="app.js"></script>
 
-    .date-line {
-      font-size: 1.2em;
-      color: #8b0000;
-      margin-top: 5px;
-    }
+  <!-- Dropdown toggle script -->
+  <script>
+    // Toggle dropdown on button click
+    document.querySelector('.dropbtn').addEventListener('click', function () {
+      document.getElementById('events-content').classList.toggle('show');
+    });
 
-    /* ---------------- Decoration ---------------- */
-    .decoration {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin: 40px 0;
-    }
-
-    .decoration .LRD {
-      width: 80px;
-      border-radius: 50%;
-      filter: drop-shadow(0 0 8px #dcae52);
-      transition: transform 0.4s ease;
-    }
-
-    .decoration .LRD:hover {
-      transform: scale(1.15);
-    }
-
-    /* ---------------- Petal animation ---------------- */
-    .flower {
-      position: fixed;
-      background: url('petal.png') no-repeat center center;
-      background-size: contain;
-      width: 30px;
-      height: 30px;
-      opacity: 0.7;
-      pointer-events: none;
-      animation-name: fall;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
-
-    .petal1 {
-      left: 10%;
-      animation-duration: 8s;
-      animation-delay: 0s;
-      top: -40px;
-    }
-
-    .petal2 {
-      left: 50%;
-      animation-duration: 10s;
-      animation-delay: 3s;
-      top: -50px;
-    }
-
-    .petal3 {
-      left: 80%;
-      animation-duration: 12s;
-      animation-delay: 5s;
-      top: -60px;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.7;
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function (e) {
+      if (!e.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName('dropdown-content');
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
       }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* ---------------- Responsive ---------------- */
-    @media (max-width: 600px) {
-      .header-flex {
-        flex-direction: column;
-        padding: 20px 5px;
-      }
-
-      .ganesh-side {
-        width: 120px;
-        margin-bottom: 15px;
-      }
-
-      .welcome-text h1 {
-        font-size: 2em;
-      }
-    }
-
-    /* ---------------- Dropdown ---------------- */
-    .events-dropdown {
-      position: absolute;
-      top: 20px;    /* top-left corner */
-      left: 20px;
-      z-index: 1000;
-    }
-
-    .dropbtn {
-      background-color: #c62828; /* festive red */
-      color: #fff;
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    .dropbtn:hover {
-      background-color: #8b0000;
-    }
-
-    .dropdown-content {
-      position: absolute;
-      left: 0;
-      top: 100%;
-      background: #fff8e1;
-      border: 1px solid #fbc02d;
-      border-radius: 8px;
-      min-width: 250px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      z-index: 1001;
-
-      /* animation settings */
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transform: translateY(-10px);
-      transition: all 0.4s ease;
-    }
-
-    .dropdown-content a {
-      display: b
+    });
+  </script>
+</body>
+</html>
+ChatGPT said:
