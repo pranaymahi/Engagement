@@ -1,109 +1,137 @@
+/* General reset and base styles */
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8f0;
+  color: #333;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f6f2;
-  text-align: center;
-  position: relative;
-  overflow-x: hidden;
-  
-  /* Hindu traditional border */
-  border: 20px solid transparent;
-  border-image-source: url('https://upload.wikimedia.org/wikipedia/commons/f/fb/Indian_Paisley.svg');
-  border-image-slice: 30 fill;
-  border-image-repeat: round;
-  border-image-width: 20px;
-  border-image-outset: 0;
+  padding: 0;
 }
 
+/* Flexbox layout for Ganesh images + Welcome text */
+.header-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 10px;
+  flex-wrap: wrap; /* Wrap on small screens */
+  background-color: #fff3e6;
+  border: 3px solid #f4c430; /* Saffron border */
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 4px 15px rgba(244, 196, 48, 0.4);
+}
 
-.header {
-  background-color: #ff6f61;
-  color: white;
-  padding: 40px 20px;
+.ganesh-side {
+  width: 100px;
+  max-width: 30%;
+  filter: drop-shadow(0 0 10px #f9b233);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.ganesh-side:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.welcome-text {
+  text-align: center;
+  max-width: 500px;
+  font-weight: 600;
+  color: #b55239; /* Warm earthy tone */
+}
+
+.welcome-text h1 {
+  font-size: 2.5em;
+  margin: 0 0 10px 0;
 }
 
 .date-line {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #8b0000; /* Dark red */
+  margin-top: 5px;
 }
 
-#countdown {
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Diya decoration */
+/* Decoration section */
 .decoration {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  gap: 20px;
+  gap: 15px;
+  margin: 40px 0;
 }
 
-.LRD {
-  width: 60px;
-  animation: glow 2s ease-in-out infinite alternate;
+.decoration .LRD {
+  width: 80px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 8px #dcae52);
+  transition: transform 0.4s ease;
 }
 
-@keyframes glow {
-  0% { opacity: 0.6; transform: scale(1); }
-  100% { opacity: 1; transform: scale(1.1); }
+.decoration .LRD:hover {
+  transform: scale(1.15);
 }
 
-/* Falling flowers */
+/* Flower petals animation placeholders */
 .flower {
-  position: absolute;
+  position: fixed;
+  background: url('../assets/petal.png') no-repeat center center;
+  background-size: contain;
   width: 30px;
   height: 30px;
-  background-image: url('https://i.imgur.com/LrC6AqZ.png'); /* working transparent petal */
-  background-size: cover;
-  animation: fall linear infinite;
+  opacity: 0.7;
   pointer-events: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
-
 
 .petal1 {
   left: 10%;
-  animation-duration: 10s;
+  animation-duration: 8s;
+  animation-delay: 0s;
+  top: -40px;
 }
 
 .petal2 {
   left: 50%;
-  animation-duration: 12s;
+  animation-duration: 10s;
+  animation-delay: 3s;
+  top: -50px;
 }
 
 .petal3 {
   left: 80%;
-  animation-duration: 15s;
+  animation-duration: 12s;
+  animation-delay: 5s;
+  top: -60px;
 }
 
 @keyframes fall {
   0% {
-    top: -50px;
-    transform: rotate(0deg);
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
   }
   100% {
-    top: 100%;
-    transform: rotate(360deg);
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
   }
 }
-.ganesh-inline {
-  width: 120px;
-  max-width: 30%;
-  margin: 10px auto;
-  display: block;
-}
-.ganesh-inline {
-  width: 120px;
-  max-width: 30%;
-  margin: 10px auto;
-  display: block;
-  filter: drop-shadow(0 0 10px #f9b233);
-  transition: transform 0.3s;
-}
 
-.ganesh-inline:hover {
-  transform: scale(1.05);
-}
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .header-flex {
+    flex-direction: column;
+    padding: 20px 5px;
+  }
 
+  .ganesh-side {
+    width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .welcome-text h1 {
+    font-size: 2em;
+  }
+}
