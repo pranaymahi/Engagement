@@ -48,7 +48,7 @@ body {
 .events-dropdown {
   position: relative;
   display: inline-block;
-  float: right;
+  float: left;
   margin: 20px;
 }
 
