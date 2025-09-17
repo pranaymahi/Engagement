@@ -19,20 +19,16 @@ setInterval(() => {
   countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
 }, 1000);
 
-// Dropdown Toggle
+// Dropdown toggle
 document.querySelector('.dropbtn').addEventListener('click', function () {
   document.getElementById('events-content').classList.toggle('show');
 });
 
 // Close dropdown if clicked outside
-window.addEventListener('click', function (e) {
+window.addEventListener('click', function(e) {
   if (!e.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName('dropdown-content');
-    for (let i = 0; i < dropdowns.length; i++) {
-      let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
+    document.querySelectorAll('.dropdown-content').forEach(drop => {
+      drop.classList.remove('show');
+    });
   }
 });
