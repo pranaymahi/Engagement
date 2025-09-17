@@ -1,19 +1,46 @@
-const weddingDate = new Date("November 15, 2025 00:00:00").getTime();
+// Wedding countdown timer
+(function () {
+  const countdownEl = document.getElementById('countdown');
+  // Set wedding date here
+  const weddingDate = new Date('November 15, 2025 00:00:00').getTime();
 
-const x = setInterval(function () {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance < 0) {
+      countdownEl.textContent = "🎉 The wedding day has arrived! 🎉";
+      clearInterval(timerInterval);
+      return;
+    }
 
-  document.getElementById("countdown").innerHTML =
-    `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds left`;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "The big day is here!";
+    countdownEl.textContent = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s until the big day!`;
   }
-}, 1000);
+
+  // Initial call
+  updateCountdown();
+
+  // Update every second
+  const timerInterval = setInterval(updateCountdown, 1000);
+})();
+
+// Dropdown toggle functionality
+(function () {
+  const dropbtn = document.querySelector('.dropbtn');
+  const dropdownContent = document.getElementById('events-content');
+
+  dropbtn.addEventListener('click', function (e) {
+    e.stopPropagation(); // Prevent event from bubbling up to window
+    dropdownContent.classList.toggle('show');
+  });
+
+  // Close dropdown if clicked outside
+  window.addEventListener('click', function () {
+    if (dropdownContent.classList.contains('show'))
