@@ -7,6 +7,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Header */
 .header-flex {
   display: flex;
   justify-content: center;
@@ -17,7 +18,7 @@ body {
 }
 
 .ganesh-side {
-  width: 90px;
+  width: 80px;
   height: auto;
 }
 
@@ -43,11 +44,12 @@ body {
   font-weight: bold;
 }
 
-/* Dropdown menu */
+/* Dropdown */
 .events-dropdown {
   position: relative;
   display: inline-block;
-  float: left;
+  float: right;
+  margin: 20px;
 }
 
 .dropbtn {
@@ -69,47 +71,104 @@ body {
   position: absolute;
   right: 0;
   background-color: #fff;
-  min-width: 220px;
+  min-width: 250px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   border-radius: 8px;
   z-index: 1;
   padding: 10px 0;
 }
 
-.dropdown-content ul {
+/* Timeline dropdown */
+.timeline {
   list-style: none;
-  padding: 0;
+  padding: 20px;
   margin: 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s ease;
 }
 
-.dropdown-content li {
-  padding: 8px 15px;
+.dropdown-content.show .timeline {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #d94f4f;
+}
+
+.timeline li {
+  position: relative;
+  padding: 15px 0 15px 50px;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.4s ease;
+}
+
+.timeline .dot {
+  position: absolute;
+  left: 11px;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  background-color: #d94f4f;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-name {
+  font-weight: bold;
+  color: #d94f4f;
   font-size: 1em;
 }
 
-.dropdown-content li:hover {
-  background-color: #ffe6e6;
+.event-date {
+  color: #555;
+  font-size: 0.9em;
+  margin-top: 2px;
 }
 
-.show {
-  display: block;
-}
+/* Animate timeline items */
+.dropdown-content.show .timeline li:nth-child(1) { opacity:1; transform: translateX(0); transition-delay:0.1s; }
+.dropdown-content.show .timeline li:nth-child(2) { opacity:1; transform: translateX(0); transition-delay:0.2s; }
+.dropdown-content.show .timeline li:nth-child(3) { opacity:1; transform: translateX(0); transition-delay:0.3s; }
+.dropdown-content.show .timeline li:nth-child(4) { opacity:1; transform: translateX(0); transition-delay:0.4s; }
+
+.dropdown-content.show .timeline li .dot { transform: scale(1); }
+.dropdown-content.show .timeline li:nth-child(2) .dot { transition-delay:0.2s; }
+.dropdown-content.show .timeline li:nth-child(3) .dot { transition-delay:0.3s; }
+.dropdown-content.show .timeline li:nth-child(4) .dot { transition-delay:0.4s; }
 
 /* Falling petals */
 .flower {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background-image: url('assets/petal.png'); /* Replace with petal image */
+  width: 25px;
+  height: 25px;
+  background-image: url('assets/petal.png'); /* Replace with your petal image */
   background-size: cover;
   top: -50px;
-  animation: fall 5s linear infinite;
   opacity: 0.8;
+  animation: fall 5s linear infinite;
 }
 
-.flower.petal1 { left: 20%; animation-duration: 6s; }
-.flower.petal2 { left: 50%; animation-duration: 8s; }
-.flower.petal3 { left: 80%; animation-duration: 7s; }
+.flower.petal1 { left: 20%; animation-duration: 6s; animation-delay: 0s; }
+.flower.petal2 { left: 50%; animation-duration: 8s; animation-delay: 1s; }
+.flower.petal3 { left: 80%; animation-duration: 7s; animation-delay: 2s; }
 
 @keyframes fall {
   0% { top: -50px; transform: translateX(0) rotate(0deg); }
