@@ -99,3 +99,9 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+.ganesh-inline {
+  width: 120px;
+  max-width: 30%;
+  margin: 10px auto;
+  display: block;
+}
