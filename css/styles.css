@@ -37,7 +37,7 @@ body {
 .decoration {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 180px;
   gap: 20px;
 }
 
