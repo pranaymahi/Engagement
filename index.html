@@ -6,27 +6,36 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="header">
-    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-img">
-        <h1>💍 Welcome to Our Wedding!</h1>
-    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-img">
-    <p class="date-line">Join us in celebrating our love on <strong>November 15, 2025</strong></p>
-    <p id="countdown"></p>
+
+  <!-- Flex layout: Ganesh image on left and right of welcome text -->
+  <div class="header-flex">
+    <!-- Left Ganesh -->
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side">
+
+    <!-- Welcome Text -->
+    <div class="welcome-text">
+      <h1>💍 Welcome to Our Wedding!</h1>
+      <p class="date-line">Join us in celebrating our love on <strong>November 15, 2025</strong></p>
+      <p id="countdown"></p>
+    </div>
+
+    <!-- Right Ganesh -->
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side">
   </div>
 
-  <!-- Decorative animated diya area -->
-<div class="decoration">
-  <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
-  <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
-  <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
-</div>
-
+  <!-- Decorative image row -->
+  <div class="decoration">
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
+    <img src="assets/LRD.jpg" alt="Venkateshwar" class="LRD">
+  </div>
 
   <!-- Falling flower animation -->
   <div class="flower petal1"></div>
   <div class="flower petal2"></div>
   <div class="flower petal3"></div>
 
+  <!-- JavaScript for countdown -->
   <script src="app.js"></script>
 </body>
 </html>
