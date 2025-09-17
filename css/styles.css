@@ -149,11 +149,12 @@ body {
 /* =========================
    Dropdown styles
 ========================= */
-/* Container */
+/* Container fixed at top-left */
 .events-dropdown {
-  position: relative;
-  display: inline-block;
-  margin: 20px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 3000;
 }
 
 /* Button */
@@ -177,15 +178,15 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 20px;   /* from top of page */
-  left: 20px;  /* from left of page */
+  top: 100%;   /* directly below button */
+  left: 0;
   background: #fff8e1;
   border: 1px solid #fbc02d;
   border-radius: 8px;
   min-width: 280px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   padding: 12px 16px;
-  z-index: 2000;
+  z-index: 3100; /* higher than petals */
 }
 
 /* Show dropdown */
