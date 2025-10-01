@@ -55,19 +55,15 @@ body {
   transform: scale(1.1);
 }
 
-/* Petals */
 .petal {
   position: fixed;
   top: -50px;
-  background-image: url("assets/flower.png"); /* replace with your flower image */
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.9;
-  border-radius: 50%;
+  font-size: 24px;
   animation: fall 10s linear forwards;
   z-index: 999;
   pointer-events: none;
 }
+
 
 /* Color variations using filters */
 .petal.pink   { filter: hue-rotate(310deg) saturate(2); }
