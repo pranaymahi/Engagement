@@ -1,34 +1,22 @@
-// Petal colors
-const colors = ["pink", "yellow", "white"];
+const flowerImgs = ["assets/rose.png","assets/marigold.png","assets/jasmine.png"];
 
-// Function to create a single petal
 function createPetal() {
-  const petal = document.createElement("div");
+  const petal = document.createElement("img");
+  petal.src = flowerImgs[Math.floor(Math.random() * flowerImgs.length)];
   petal.classList.add("petal");
 
-  // Random color
-  const color = colors[Math.floor(Math.random() * colors.length)];
-  petal.classList.add(color);
-
-  // Random size
-  const size = Math.random() * 20 + 20; // 20px - 40px
+  const size = Math.random() * 25 + 25;
   petal.style.width = `${size}px`;
   petal.style.height = `${size}px`;
 
-  // Random position across screen
   petal.style.left = Math.random() * 100 + "vw";
-
-  // Random animation timing
-  petal.style.animationDuration = (Math.random() * 5 + 8) + "s"; // 8s - 13s
-  petal.style.animationDelay = Math.random() * 3 + "s";
+  petal.style.animationDuration = (Math.random() * 5 + 8) + "s";
 
   document.body.appendChild(petal);
 
-  // Remove petal after animation ends
-  setTimeout(() => {
-    petal.remove();
-  }, 15000);
+  setTimeout(() => petal.remove(), 15000);
 }
+
 
 // Function to create a burst of petals
 function petalBurst(count = 20) {
