@@ -235,3 +235,32 @@ body {
     transform: translateX(-50%);
   }
 }
+/* Floating sticky button */
+#floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #b3005e;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease-in-out;
+}
+
+#floating-btn:hover {
+  transform: scale(1.05);
+  background: #99004d;
+}
+
+/* Ensure dropdown is mobile-friendly */
+.dropdown-content {
+  width: 95%;
+  max-width: 500px;
+  margin: 0 auto;
+}
