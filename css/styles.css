@@ -12,15 +12,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  gap: 30px;
+  padding: 20px;
   background: linear-gradient(to right, #ffe0ec, #fff8f0);
   text-align: center;
+  flex-wrap: wrap; /* allow stacking on mobile */
 }
 
 .ganesh-side {
-  width: 80px;
+  width: 100px;
   height: auto;
-  margin: 0 20px;
+}
+
+.welcome-text {
+  flex: 1;
+  max-width: 500px;
 }
 
 .welcome-text h1 {
@@ -29,9 +35,29 @@ body {
   margin: 10px 0;
 }
 
-.date-line {
+.welcome-text .date-line {
   font-size: 1.2em;
   color: #444;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .header-flex {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .ganesh-side {
+    width: 80px;
+  }
+
+  .welcome-text h1 {
+    font-size: 1.5em;
+  }
+
+  .welcome-text .date-line {
+    font-size: 1em;
+  }
 }
 
 /* Floating Button */
@@ -55,6 +81,7 @@ body {
   transform: scale(1.1);
 }
 
+/* Petals (using emojis) */
 .petal {
   position: fixed;
   top: -50px;
@@ -63,12 +90,6 @@ body {
   z-index: 999;
   pointer-events: none;
 }
-
-
-/* Color variations using filters */
-.petal.pink   { filter: hue-rotate(310deg) saturate(2); }
-.petal.yellow { filter: hue-rotate(50deg) saturate(3); }
-.petal.white  { filter: grayscale(100%) brightness(1.4); }
 
 @keyframes fall {
   0%   { transform: translateX(0px) translateY(-100px) rotate(0deg); opacity: 1; }
