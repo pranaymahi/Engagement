@@ -32,3 +32,12 @@ window.addEventListener('click', function(e) {
     });
   }
 });
+// Floating button opens schedule
+document.getElementById("floating-btn").addEventListener("click", function() {
+  const content = document.getElementById("events-content");
+  content.style.display = (content.style.display === "block") ? "none" : "block";
+  // Auto scroll into view when opened
+  if (content.style.display === "block") {
+    content.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
