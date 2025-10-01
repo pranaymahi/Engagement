@@ -16,28 +16,30 @@ setInterval(() => {
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+  countdown.innerHTML = `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
 }, 1000);
 
-// Dropdown toggle
-document.querySelector('.dropbtn').addEventListener('click', function () {
-  document.getElementById('events-content').classList.toggle('show');
-});
+// Modal schedule logic
+const scheduleContent = document.getElementById("events-content");
+const overlay = document.getElementById("overlay");
+const floatingBtn = document.getElementById("floating-btn");
 
-// Close dropdown if clicked outside
-window.addEventListener('click', function(e) {
-  if (!e.target.matches('.dropbtn')) {
-    document.querySelectorAll('.dropdown-content').forEach(drop => {
-      drop.classList.remove('show');
-    });
+// Open/close toggle
+function toggleSchedule() {
+  scheduleContent.classList.toggle("show");
+  overlay.classList.toggle("show");
+
+  if (scheduleContent.classList.contains("show")) {
+    scheduleContent.scrollIntoView({ behavior: "smooth", block: "center" });
   }
-});
-// Floating button opens schedule
-document.getElementById("floating-btn").addEventListener("click", function() {
-  const content = document.getElementById("events-content");
-  content.style.display = (content.style.display === "block") ? "none" : "block";
-  // Auto scroll into view when opened
-  if (content.style.display === "block") {
-    content.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-});
+}
+
+// Close modal
+function closeSchedule() {
+  scheduleContent.classList.remove("show");
+  overlay.classList.remove("show");
+}
+
+// Event listeners
+floatingBtn.addEventListener("click", toggleSchedule);
+overlay.addEventListener("click", closeSchedule);
