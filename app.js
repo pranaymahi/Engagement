@@ -7,7 +7,7 @@ setInterval(() => {
   const distance = weddingDate - now;
 
   if (distance < 0) {
-    countdown.innerHTML = "🎉 The Wedding Day is Here!";
+    countdown.innerHTML = "🎉 The Engagement Day is Here!";
     return;
   }
 
