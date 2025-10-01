@@ -15,8 +15,7 @@ body {
   gap: 30px;
   padding: 20px;
   background: linear-gradient(to right, #ffe0ec, #fff8f0);
-  text-align: center;
-  flex-wrap: wrap; /* allow stacking on mobile */
+  flex-wrap: wrap; /* stack on small screens */
 }
 
 .ganesh-side {
@@ -25,6 +24,7 @@ body {
 }
 
 .welcome-text {
+  text-align: center;
   flex: 1;
   max-width: 500px;
 }
@@ -81,7 +81,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Petals (using emojis) */
+/* Petals (emoji) */
 .petal {
   position: fixed;
   top: -50px;
