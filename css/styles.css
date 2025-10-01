@@ -12,23 +12,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   padding: 20px;
   background: linear-gradient(to right, #ffe0ec, #fff8f0);
-  flex-wrap: wrap; /* stack on small screens */
+  flex-wrap: wrap; /* allow wrapping on small screens */
 }
 
+/* Ganesh Images */
 .ganesh-side {
+  flex-shrink: 0;   /* prevent images from shrinking too small */
   width: 100px;
   height: auto;
 }
 
+/* Text section */
 .welcome-text {
+  flex: 1 1 300px;  /* allow text to shrink on smaller screens */
   text-align: center;
-  flex: 1;
   max-width: 500px;
 }
 
+/* Heading & date */
 .welcome-text h1 {
   font-size: 2em;
   color: #d63384;
@@ -43,7 +47,7 @@ body {
 /* Mobile Responsive */
 @media (max-width: 600px) {
   .header-flex {
-    flex-direction: column;
+    flex-direction: column; /* stack Ganesh images & text vertically */
     gap: 15px;
   }
 
