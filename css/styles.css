@@ -1,104 +1,237 @@
-/* General Page */
+/* General styles */
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #fff8f0;
+  background: #fff5f0;
   overflow-x: hidden;
 }
 
 /* Header */
 .header-flex {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  background: linear-gradient(to right, #ffe0ec, #fff8f0);
-  flex-wrap: wrap; /* allow wrapping on small screens */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
 }
 
-/* Ganesh Images */
 .ganesh-side {
-  flex-shrink: 0;   /* prevent images from shrinking too small */
-  width: 100px;
+  width: 160px;
   height: auto;
 }
 
-/* Text section */
 .welcome-text {
-  flex: 1 1 300px;  /* allow text to shrink on smaller screens */
   text-align: center;
-  max-width: 500px;
 }
 
-/* Heading & date */
 .welcome-text h1 {
   font-size: 2em;
-  color: #d63384;
-  margin: 10px 0;
+  margin: 0;
+  color: #d94f4f;
 }
 
-.welcome-text .date-line {
+.date-line {
   font-size: 1.2em;
-  color: #444;
+  margin: 5px 0;
 }
 
-/* Mobile Responsive */
+/* Countdown */
+#countdown {
+  font-size: 1.2em;
+  color: #ff4f4f;
+  font-weight: bold;
+}
+
+/* Dropdown */
+.events-dropdown {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  position: relative;
+}
+
+.dropbtn {
+  background-color: #d94f4f;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.dropbtn:hover {
+  background-color: #b03a3a;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  min-width: 90%;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1000;
+  padding: 10px 0;
+  overflow: visible;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+/* Timeline dropdown */
+.timeline {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s ease;
+}
+
+.dropdown-content.show .timeline {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #d94f4f;
+}
+
+.timeline li {
+  position: relative;
+  padding: 15px 0 15px 50px;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.4s ease;
+}
+
+.timeline .dot {
+  position: absolute;
+  left: 11px;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  background-color: #d94f4f;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-name {
+  font-weight: bold;
+  color: #d94f4f;
+  font-size: 1em;
+}
+
+.event-date {
+  color: #555;
+  font-size: 0.9em;
+  margin-top: 2px;
+}
+
+/* Event address link */
+.event-location {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.9em;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.event-location:hover {
+  text-decoration: underline;
+  color: #005999;
+}
+
+/* Animate timeline items */
+.dropdown-content.show .timeline li:nth-child(1) { opacity:1; transform: translateX(0); transition-delay:0.1s; }
+.dropdown-content.show .timeline li:nth-child(2) { opacity:1; transform: translateX(0); transition-delay:0.2s; }
+.dropdown-content.show .timeline li:nth-child(3) { opacity:1; transform: translateX(0); transition-delay:0.3s; }
+.dropdown-content.show .timeline li:nth-child(4) { opacity:1; transform: translateX(0); transition-delay:0.4s; }
+
+.dropdown-content.show .timeline li .dot { transform: scale(1); }
+.dropdown-content.show .timeline li:nth-child(2) .dot { transition-delay:0.2s; }
+.dropdown-content.show .timeline li:nth-child(3) .dot { transition-delay:0.3s; }
+.dropdown-content.show .timeline li:nth-child(4) .dot { transition-delay:0.4s; }
+
+/* Falling petals */
+.flower {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url('assets/petal.png'); /* replace with your petal image */
+  background-size: cover;
+  top: -50px;
+  opacity: 0.8;
+  animation: fall 5s linear infinite;
+}
+
+.flower.petal1 { left: 20%; animation-duration: 6s; animation-delay: 0s; }
+.flower.petal2 { left: 50%; animation-duration: 8s; animation-delay: 1s; }
+.flower.petal3 { left: 80%; animation-duration: 7s; animation-delay: 2s; }
+
+@keyframes fall {
+  0% { top: -50px; transform: translateX(0) rotate(0deg); }
+  100% { top: 100vh; transform: translateX(50px) rotate(360deg); }
+}
+
+/* Responsive adjustments */
 @media (max-width: 600px) {
   .header-flex {
-    flex-direction: column; /* stack Ganesh images & text vertically */
-    gap: 15px;
-  }
-
-  .ganesh-side {
-    width: 80px;
+    flex-direction: column;
   }
 
   .welcome-text h1 {
     font-size: 1.5em;
   }
 
-  .welcome-text .date-line {
+  .date-line,
+  #countdown {
     font-size: 1em;
   }
-}
 
-/* Floating Button */
-#floating-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff6699;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-  z-index: 1000;
-}
+  .dropbtn {
+    font-size: 0.9em;
+    padding: 8px 15px;
+  }
 
-#floating-btn:hover {
-  transform: scale(1.1);
-}
+  .timeline li {
+    padding-left: 50px;
+  }
 
-/* Petals (emoji) */
-.petal {
-  position: fixed;
-  top: -50px;
-  font-size: 24px;
-  animation: fall 10s linear forwards;
-  z-index: 999;
-  pointer-events: none;
-}
+  .timeline::before {
+    left: 15px;
+  }
 
-@keyframes fall {
-  0%   { transform: translateX(0px) translateY(-100px) rotate(0deg); opacity: 1; }
-  25%  { transform: translateX(-20px) translateY(25vh) rotate(90deg); }
-  50%  { transform: translateX(20px) translateY(50vh) rotate(180deg); }
-  75%  { transform: translateX(-15px) translateY(75vh) rotate(270deg); }
-  100% { transform: translateX(0px) translateY(110vh) rotate(360deg); opacity: 0.6; }
+  .timeline .dot {
+    left: 6px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .dropdown-content {
+    min-width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
