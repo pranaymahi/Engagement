@@ -1,13 +1,13 @@
 // Countdown Timer
 const countdown = document.getElementById('countdown');
-const weddingDate = new Date("Oct 11, 2025 10:30:00 AM").getTime();
+const weddingDate = new Date("Nov 15, 2025 10:00:00").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
   if (distance < 0) {
-    countdown.innerHTML = "🎉 The Engagement Day is Here!";
+    countdown.innerHTML = "🎉 The Wedding Day is Here!";
     return;
   }
 
@@ -19,40 +19,16 @@ setInterval(() => {
   countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
 }, 1000);
 
-// Petal falling using emojis
-const flowers = ["🌸","🌼","💮","🌺","🌻"];
-
-// Function to create a single petal
-function createPetal() {
-  const petal = document.createElement("div");
-  petal.classList.add("petal");
-  petal.textContent = flowers[Math.floor(Math.random() * flowers.length)];
-
-  petal.style.left = Math.random() * 100 + "vw";
-  petal.style.fontSize = (Math.random() * 20 + 20) + "px"; // 20–40px
-  petal.style.animationDuration = (Math.random() * 5 + 8) + "s";
-
-  document.body.appendChild(petal);
-
-  setTimeout(() => petal.remove(), 15000);
-}
-
-// Function to create a burst of petals
-function petalBurst(count = 20) {
-  for (let i = 0; i < count; i++) {
-    setTimeout(() => createPetal(), i * 100);
-  }
-}
-
-// Initial burst on page load
-window.addEventListener("load", () => {
-  petalBurst(25);
+// Dropdown toggle
+document.querySelector('.dropbtn').addEventListener('click', function () {
+  document.getElementById('events-content').classList.toggle('show');
 });
 
-// Continuous gentle petals
-setInterval(createPetal, 800);
-
-// Burst when schedule button is clicked
-document.getElementById("floating-btn").addEventListener("click", () => {
-  petalBurst(40);
+// Close dropdown if clicked outside
+window.addEventListener('click', function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    document.querySelectorAll('.dropdown-content').forEach(drop => {
+      drop.classList.remove('show');
+    });
+  }
 });
