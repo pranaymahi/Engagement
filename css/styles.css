@@ -1,19 +1,9 @@
-/* General styles */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fff5f0;
-  overflow-x: hidden;
-}
-/* 🌸 Wedding Page Background */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  /* 💐 Background setup */
- body {
+  /* 💐 Background setup using your GitHub raw image */
   background:
     linear-gradient(rgba(255, 245, 245, 0.85), rgba(255, 235, 235, 0.9)),
     url('https://raw.githubusercontent.com/pranaymahi/Engagement/main/assets/flower.png');
@@ -21,7 +11,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  color: #5a3e36;
+  text-align: center;
 }
+
 
 
   color: #5a3e36;
