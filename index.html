@@ -3,28 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Engagement Invitation</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
   <!-- Header with Ganesh images and welcome text -->
-<div class="header-flex">
-  <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
-  <div class="welcome-text">
-    <h1>💍 Welcome to Our Engagement!</h1>
-    <p class="date-line">Join us on <strong>October 11, 2025 at 10:30 AM</strong></p>
-    <p id="countdown"></p>
+  <div class="header-flex">
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
+    <div class="welcome-text">
+      <h1>💍 Welcome to Our Wedding!</h1>
+      <p class="date-line">Join us  on <strong>November 15, 2025</strong></p>
+      <p id="countdown"></p>
+    </div>
+    <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
   </div>
-  <img src="assets/LRD.jpg" alt="Ganeshji" class="ganesh-side" />
-</div>
 
+  <!-- Dropdown menu for wedding events -->
+  <div class="events-dropdown">
+    <button class="dropbtn">Wedding Events Schedule ▼</button>
+    <div id="events-content" class="dropdown-content">
+      <ul class="timeline">
+        <li>
+          <div class="dot"></div>
+          <div class="event-info">
+            <span class="event-name">💛 Mehendi Ceremony</span>
+            <span class="event-date">November 12, 2025, 5:00 PM</span>
+            <a href="https://share.google/ZKt5txF2i1nqbMSkU" target="_blank" class="event-location">📍 Venue 1 Nizamabad</a>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="event-info">
+            <span class="event-name">🎶 Sangeet Night</span>
+            <span class="event-date">November 13, 2025, 7:00 PM</span>
+            <a href="https://goo.gl/maps/example2" target="_blank" class="event-location">📍 Venue 2 Address</a>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="event-info">
+            <span class="event-name">💍 Wedding Ceremony</span>
+            <span class="event-date">November 15, 2025, 10:00 AM</span>
+            <a href="https://goo.gl/maps/example3" target="_blank" class="event-location">📍 Wedding Venue Address</a>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div class="event-info">
+            <span class="event-name">🥂 Reception</span>
+            <span class="event-date">November 15, 2025, 7:00 PM</span>
+            <a href="https://goo.gl/maps/example4" target="_blank" class="event-location">📍 Reception Venue Address</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-  <!-- Floating schedule button -->
-  <button id="floating-btn">📅 Schedule</button>
-
-  <!-- Overlay for petals -->
-  <div id="overlay"></div>
+  <!-- Falling flower petals -->
+  <div class="flower petal1"></div>
+  <div class="flower petal2"></div>
+  <div class="flower petal3"></div>
 
   <!-- JavaScript -->
   <script src="app.js"></script>
